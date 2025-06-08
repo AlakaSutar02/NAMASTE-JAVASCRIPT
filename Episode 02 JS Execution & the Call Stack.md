@@ -1,4 +1,36 @@
 
+
+## ⚙️ Episode 2: How JavaScript is Executed & the Call Stack
+
+When a JavaScript program starts running, the js engine creates a **Global Execution Context (GEC)**. This context is built in **two phases**:
+
+### 🔹 1. Memory Creation Phase
+
+JavaScript scans through the entire code and:
+
+* Allocates memory for all **variables** and **functions**
+* Initializes variables with the value `undefined`
+* Stores full **function definitions** in memory
+
+#### 📌 Example:
+
+```js
+var n = 2;
+function square(num) {
+  var ans = num * num;
+  return ans;
+}
+var square2 = square(n);
+var square4 = square(4);
+```
+
+**🔸 During the memory phase:**
+
+* `n` → `undefined`
+* `square` → function definition stored
+* `square2`, `square4` → `undefined`
+
+---
 ### 🔹 2. Code Execution Phase
 
 After memory is allocated, JavaScript begins **executing the code line-by-line**:
